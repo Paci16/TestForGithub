@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MaterialApp(
+      title: 'Demo',
+      home: Scaffold(
+        body: Demo2(),
+      ),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -120,6 +127,48 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+// pertemuan 3 widget
+class Demo2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      backgroundColor: Colors.grey[800],
+      appBar: new AppBar(
+        backgroundColor: Colors.yellow[200],
+        leading: new Icon(Icons.home),  //ini buat material icon
+        title: new Center(
+          child: new Text("Demo Widget")
+        ),
+      ),
+      body: new Container(
+        child: new Row(   //child g bisa lebih dari satu elemennya, makanya pake children
+          children: <Widget>[   //bisa nambahin beberapa elemen, kalo g ada ini, nanti g bisa keluar widget iconnya
+            new Icon(
+                Icons.android,
+                size: 70.0,
+                color: Colors.red,
+            ),
+            Expanded(
+              child: Align(
+                child: new Icon(
+                  Icons.cake,
+                  size: 70.0,
+                  color: Colors.blue,
+                ),
+              ),
+            ),
+            new Icon(
+              Icons.cabin,
+              size: 70.0,
+              color: Colors.greenAccent,
+            )
+          ],
+        ),
+      )
     );
   }
 }
